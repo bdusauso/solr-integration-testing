@@ -1,4 +1,4 @@
-spring-openjpa-quickstart
+Solr integration testing
 =========================
 
-A simple project structure to quickly set up Spring 3 with OpenJPA 2
+Attempt to do some integration testing with Solr embedded in a jetty server.
