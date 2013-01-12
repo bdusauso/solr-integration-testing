@@ -17,7 +17,10 @@ public class Dossier extends BaseEntity {
     @Column(name = "iter_reference", nullable = false, unique = true)
     private String iterReference;
 
-    @ManyToMany(mappedBy = "dossiers")
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(name = "procedure_dossier",
+            joinColumns = {@JoinColumn(name = "procedure_id")},
+            inverseJoinColumns = {@JoinColumn(name = "dossier_id")})
     private Set<Procedure> procedures = new HashSet<Procedure>();
 
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})

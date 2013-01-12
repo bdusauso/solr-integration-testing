@@ -33,10 +33,7 @@ public class Procedure extends BaseEntity {
     @Column(name = "status_code")
     private String statusCode;
 
-    @ManyToMany
-    @JoinTable(name = "procedure_dossier",
-            joinColumns = {@JoinColumn(name = "procedure_id")},
-            inverseJoinColumns = {@JoinColumn(name = "dossier_id")})
+    @ManyToMany(mappedBy = "procedures")
     private Set<Dossier> dossiers = new HashSet<Dossier>();
 
     @ManyToOne(cascade = CascadeType.ALL)
